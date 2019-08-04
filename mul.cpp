@@ -13,6 +13,7 @@ string mwod(string s1, int n)
          c = mul/10;
      }
      if(c!=0) s.push_back(c + '0');
+     reverse(s.begin(), s.end());
      return s;
 }
 string add(string s1, string s2)
@@ -46,16 +47,16 @@ int main() {
     cin >> s1 >> s2;
     s3 = '0';
     int n2 = s2.length();
+    reverse(s2.begin(), s2.end());
     for(int i=0; i<n2; i++)
     {
         string s = mwod(s1, (s2[i] - '0'));
         for(int j=0; j<i; j++)
         {
-            s = s + '0';
+            s.push_back('0');
         }
         s3 = add(s3, s);
     }
-    reverse(s3.begin(), s3.end());
     cout << s3;
    
 }
